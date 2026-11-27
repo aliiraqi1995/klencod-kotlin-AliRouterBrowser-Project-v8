@@ -687,11 +687,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun unlockPageViewportZoom(webView: WebView) {
         val js = "(function(){" +
-            "var meta=document.querySelector('meta[name=\"viewport\"]');" +
+            "var meta=document.querySelector('meta[name="viewport"]');" +
             "if(meta){var c=meta.getAttribute('content')||'';" +
-            "c=c.replace(/user-scalable\s*=\s*no/ig,'user-scalable=yes');" +
-            "c=c.replace(/maximum-scale\s*=\s*[0-9.]+/ig,'maximum-scale=5.0');" +
-            "c=c.replace(/minimum-scale\s*=\s*[0-9.]+/ig,'minimum-scale=0.25');" +
+            "c=c.replace(/user-scalable\\s*=\\s*no/ig,'user-scalable=yes');" +
+            "c=c.replace(/maximum-scale\\s*=\\s*[0-9.]+/ig,'maximum-scale=5.0');" +
+            "c=c.replace(/minimum-scale\\s*=\\s*[0-9.]+/ig,'minimum-scale=0.25');" +
             "if(c.indexOf('user-scalable')===-1){c=c+', user-scalable=yes';}" +
             "if(c.indexOf('maximum-scale')===-1){c=c+', maximum-scale=5.0';}" +
             "meta.setAttribute('content',c);}" +
