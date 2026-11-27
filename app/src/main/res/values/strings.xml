@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">متصفح الراوترات والأجهزة</string>
+    <string name="go">ذهاب</string>
+    <string name="back">رجوع</string>
+    <string name="devices">الأجهزة</string>
+    <string name="tabs">التبويبات</string>
+    <string name="translate">ترجمة</string>
+    <string name="options">الخصائص</string>
+</resources>

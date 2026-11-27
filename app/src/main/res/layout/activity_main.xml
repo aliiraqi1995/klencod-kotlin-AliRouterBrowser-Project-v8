@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="?attr/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="6dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:src="@android:drawable/ic_media_next"
+            app:tint="?attr/colorOnPrimary" />
+
+        <AutoCompleteTextView
+            android:id="@+id/etUrl"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="4dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/edit_text"
+            android:completionThreshold="1"
+            android:gravity="center_vertical|start"
+            android:hint="http://192.168.0.1"
+            android:imeOptions="actionGo"
+            android:inputType="textUri"
+            android:paddingHorizontal="10dp"
+            android:singleLine="true"
+            android:textDirection="ltr"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:minWidth="60dp"
+            android:text="@string/go"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvNetworkBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B71C1C"
+        android:gravity="center"
+        android:paddingVertical="4dp"
+        android:text="غير متصل بالشبكة — سيتم تحديث الصفحة تلقائياً عند الاتصال"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/webContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/btnDevices"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@android:drawable/ic_menu_share"
+                app:tint="?attr/colorOnPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الأجهزة"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnTabs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTabCount"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@android:drawable/dialog_holo_light_frame"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#0D47A1"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الصفحات"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnTranslate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@android:drawable/ic_menu_sort_alphabetically"
+                app:tint="?attr/colorOnPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ترجمة للعربي"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnOptions"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="?attr/colorOnPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الخصائص"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
