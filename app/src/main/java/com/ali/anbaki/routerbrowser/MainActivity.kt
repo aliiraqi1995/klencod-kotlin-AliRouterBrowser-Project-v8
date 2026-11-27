@@ -686,19 +686,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun unlockPageViewportZoom(webView: WebView) {
-        val js = "(function(){" +
-            "var meta=document.querySelector('meta[name="viewport"]');" +
-            "if(meta){var c=meta.getAttribute('content')||'';" +
-            "c=c.replace(/user-scalable\\s*=\\s*no/ig,'user-scalable=yes');" +
-            "c=c.replace(/maximum-scale\\s*=\\s*[0-9.]+/ig,'maximum-scale=5.0');" +
-            "c=c.replace(/minimum-scale\\s*=\\s*[0-9.]+/ig,'minimum-scale=0.25');" +
-            "if(c.indexOf('user-scalable')===-1){c=c+', user-scalable=yes';}" +
-            "if(c.indexOf('maximum-scale')===-1){c=c+', maximum-scale=5.0';}" +
-            "meta.setAttribute('content',c);}" +
-            "else{var m=document.createElement('meta');m.name='viewport';m.content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';document.head&&document.head.appendChild(m);}" +
-            "document.documentElement.style.touchAction='manipulation';" +
-            "if(document.body){document.body.style.touchAction='manipulation';}" +
-            "})();"
+        val js = """
+            (function(){
+                var meta=document.querySelector('meta[name="viewport"]');
+                if(meta){
+                    var c=meta.getAttribute('content')||'';
+                    c=c.replace(/user-scalable\s*=\s*no/ig,'user-scalable=yes');
+                    c=c.replace(/maximum-scale\s*=\s*[0-9.]+/ig,'maximum-scale=5.0');
+                    c=c.replace(/minimum-scale\s*=\s*[0-9.]+/ig,'minimum-scale=0.25');
+                    if(c.indexOf('user-scalable')===-1){c=c+', user-scalable=yes';}
+                    if(c.indexOf('maximum-scale')===-1){c=c+', maximum-scale=5.0';}
+                    meta.setAttribute('content',c);
+                }else{
+                    var m=document.createElement('meta');
+                    m.name='viewport';
+                    m.content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';
+                    document.head&&document.head.appendChild(m);
+                }
+                document.documentElement.style.touchAction='manipulation';
+                if(document.body){document.body.style.touchAction='manipulation';}
+            })();
+        """.trimIndent()
         webView.evaluateJavascript(js, null)
     }
 
